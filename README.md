@@ -6,3 +6,6 @@ The Operations
 <br> 1 . Create / Read  / Update /  Delete 
 <br> 2 . Notify all brokers of new houses on the market 
 <br> 3 . Store house pictures
+<br>
+<br> ##Gcloud Commands
+<br> Auth  : gcloud auth application-default
