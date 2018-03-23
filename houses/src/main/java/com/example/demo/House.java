@@ -18,6 +18,9 @@ public class House {
         this.id = id;
         this.address = address;
     }
+    public House(String address){
+        this.address = address;
+    }
 
     public long getId() {
         return id;
