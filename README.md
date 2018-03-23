@@ -3,8 +3,6 @@ Reaal Estate Project for Spring Tutorial
 
 ## Real Estate Sales Platform - Project 
 The Operations 
-| Create | Read |Update | Delete |
-| ---- | 
-| Notify all brokers of new houses on the market |
-| --- | 
-| Store house pictures | 
+<br> 1 . Create / Read  / Update /  Delete 
+<br> 2 . Notify all brokers of new houses on the market 
+<br> 3 . Store house pictures
