@@ -1,6 +1,9 @@
 # RealEstate-Spring
 Reaal Estate Project for Spring Tutorial 
 
+## Links : 
+1 . The Tutorial   :  https://www.youtube.com/watch?v=oP2oJ0qw65I
+<br>2 . Spring GCP Ref :  https://docs.spring.io/spring-cloud-gcp/docs/1.0.0.M2/reference/htmlsingle/
 ## Real Estate Sales Platform - Project 
 The Operations 
 <br> 1 . Create / Read  / Update /  Delete 
