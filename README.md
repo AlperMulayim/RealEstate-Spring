@@ -1,17 +1,66 @@
-# RealEstate-Spring
-Reaal Estate Project for Spring Tutorial 
-houseSQL is SQL connection for the google cloud
+## Task Manager
+### Task Manager Part - 1 
+1 . Create the Task 
+```java
+@Entity
+@Data
+@AllArgsConstructor
+public class Task {
 
-## Links : 
-1 . The Tutorial   :  https://www.youtube.com/watch?v=oP2oJ0qw65I
-<br>2 . Spring GCP Ref :  https://docs.spring.io/spring-cloud-gcp/docs/1.0.0.M2/reference/htmlsingle/
-## Real Estate Sales Platform - Project 
-The Operations 
-<br> 1 . Create / Read  / Update /  Delete 
-<br> 2 . Notify all brokers of new houses on the market 
-<br> 3 . Store house pictures
-<br>
-## GCLOUD Commands
-<br> Auth  : gcloud auth application-default
-## PROJECT STRUCTURE
-![ekran alintisi](https://user-images.githubusercontent.com/12942688/37842738-fd502622-2ed3-11e8-8e53-7d73d3e08dca.PNG)
+    @Id
+    @GeneratedValue
+    private long id;
+    private String name;
+    @JsonFormat(pattern = "MM/dd/yyyy")
+    private LocalDate dueDate;
+    private boolean complated;
+}
+```
+<br> 2 . Task Repository extends CrudRepository
+
+```java 
+public interface TaskRepository extends CrudRepository<Task,Long> {}
+```
+
+<br> 3 . TaskService implementation, TaskService has the same methods on the TaskController
+```java
+public interface TaskService {
+  Iterable<Task> taskList();
+}
+```
+<br> 4 . Implementing the TaskServiceImp , this service private member TaskRepository
+```java
+ //generate the task repository for service
+    private TaskRepository taskRepository;
+
+    public TaskServiceImp(TaskRepository taskRepository) {
+        this.taskRepository = taskRepository;
+    }
+
+    @Override
+    public Iterable<Task> taskList() {
+        return taskRepository.findAll();
+    }
+  ```
+  <br> 5 . Now we add the TaskService to TaskController
+  
+```java
+@RestController
+@RequestMapping("/api/tasks")
+public class TaskController {
+
+    private TaskService taskService;
+    
+    public TaskController(TaskService taskService) {
+        this.taskService = taskService;
+    }
+
+    @RequestMapping("/")
+    public Iterable<Task> listTasks(){
+        //call the taskservice listTasks
+        return taskService.listTasks();
+    }
+
+}
+  ```
+ 
