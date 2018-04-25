@@ -167,6 +167,8 @@ spring.h2.console.path= /h2-console
 ### Install 
 https://cli.angular.io/ command : npm install -g @angular/cli
 ### Adding to project 
-ng new frontend ( to main directory ) 
- 
+ 1 . Add the project :  ng new frontend ( to main directory ) 
+ <br>2 . Generate Component : ng g c tasks 
+ <br>3 . Generate tasks-add : ng g c tasks/task-add
+ <br>4 . Generate task-list : ng g c tasks/task-list
 
