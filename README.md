@@ -1,6 +1,7 @@
 ## Task Manager
 ### Task Manager Part - 1 
-1 . Create the Task 
+Task Manager Project structure 
+<br> 1 . Create the Task 
 ```java
 @Entity
 @Data
@@ -63,4 +64,27 @@ public class TaskController {
 
 }
   ```
+  
+  ### Task Manager Part -2 
+  
+  1 . saveTask() operation , TaskServiceImp  implements TaskService TaskRepository extends from the CrudRepository - https://docs.spring.io/spring-data/commons/docs/current/api/org/springframework/data/repository/CrudRepository.html 
+ TaskServiceImp
+ ```java
+   @Override
+    public Task saveTask(Task task) {
+        return taskRepository.save(task);
+    }
+}
+```
+2 . saveTask() operation TaskController side  
+```java
+  //post mapping the url 
+  @PostMapping("/save")
+    public Task saveTask(@RequestBody Task task){
+        return taskService.saveTask(task);
+    }
+ ```
+    
+
+ 
  
