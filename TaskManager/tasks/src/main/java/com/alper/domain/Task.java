@@ -26,4 +26,10 @@ public class Task {
     private boolean complated;
 
     public Task(){}
+
+    public Task(String name, LocalDate dueDate, boolean complated) {
+        this.name = name;
+        this.dueDate = dueDate;
+        this.complated = complated;
+    }
 }

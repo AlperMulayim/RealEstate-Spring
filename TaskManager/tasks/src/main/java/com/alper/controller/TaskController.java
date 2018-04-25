@@ -20,7 +20,7 @@ public class TaskController {
         this.taskService = taskService;
     }
 
-    @RequestMapping("/")
+    @RequestMapping("")
     public Iterable<Task> listTasks(){
         //call the taskservice listTasks
         return taskService.listTasks();
