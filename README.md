@@ -84,7 +84,50 @@ public class TaskController {
         return taskService.saveTask(task);
     }
  ```
-    
 
- 
+3. application.properties H2 SQL setting
+```
+spring.datasource.name= tasks
+spring.jpa.show-sql=true
+
+spring.h2.console.enabled= true
+spring.h2.console.path= /h2-console
+```
+4 . H2 SQL adding the tasks TaskApplication 
+
+```java
+@Bean
+	CommandLineRunner runner(TaskService taskService){
+		return args->{
+			taskService.saveTask(new Task("Work For Spring", LocalDate.now(),false));
+			taskService.saveTask(new Task("Work For Math", LocalDate.now().plus(10, ChronoUnit.DAYS),false));
+			taskService.saveTask(new Task("Go to Supermarket", LocalDate.now().plus(5,ChronoUnit.DAYS),false));
+		};
+	}
+ ```
+ 5 . Running the h2-SQL database on http://localhost:8080/h2-console/ JDBC URL : jdbc:h2:mem:tasks 
+ <br> 6 . The Result is 
+ ```
+ [
+    {
+        id: 1,
+        name: "Work For Spring",
+        dueDate: "04/25/2018",
+        complated: false
+    },
+    {
+        id: 2,
+        name: "Work For Math",
+        dueDate: "05/05/2018",
+        complated: false
+    },
+    {
+        id: 3,
+        name: "Go to Supermarket",
+        dueDate: "04/30/2018",
+        complated: false
+    }
+]
+```
+
  
