@@ -129,5 +129,37 @@ spring.h2.console.path= /h2-console
     }
 ]
 ```
-
+<br> CarService add for exercise
+```
+[
+	{
+		id: 4,
+		model: "Opel Corsa",
+		plaka: "12KL12",
+		driverName: "Oliver",
+		modelYear: 2010
+	},
+	{
+		id: 5,
+		model: "Mercedes GLA",
+		plaka: "XCVR312",
+		driverName: "Teressa",
+		modelYear: 2017
+	},
+	{
+		id: 6,
+		model: "Renault Megan",
+		plaka: "123UV1234",
+		driverName: "Namık",
+		modelYear: 2005
+	},
+	{
+		id: 7,
+		model: "Skoda Kodiak",
+		plaka: "14mn34",
+		driverName: "Demi",
+		modelYear: 2017
+	}
+]
+```
  
