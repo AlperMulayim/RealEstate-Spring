@@ -14,6 +14,9 @@ import javax.persistence.Id;
 @Data
 @AllArgsConstructor
 public class Car {
+
+
+
     @Id
     @GeneratedValue
     private long id;
