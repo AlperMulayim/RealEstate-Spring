@@ -162,4 +162,11 @@ spring.h2.console.path= /h2-console
 	}
 ]
 ```
+
+# Angular Install 
+### Install 
+https://cli.angular.io/ command : npm install -g @angular/cli
+### Adding to project 
+ng new frontend ( to main directory ) 
  
+
