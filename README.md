@@ -233,3 +233,72 @@ https://cli.angular.io/ command : npm install -g @angular/cli
     <a href="#" class="list-group-item">Third item</a>
 </div>
 ````
+5. Create the tasks.model.ts this is the model 
+```
+export class Task{
+    public id: number;
+    public name: string;
+    public complated : boolean;
+    public dueDate : string;
+
+
+    constructor(id:number, name:string, complated:boolean, dueDate:string) {
+        this.id = id;
+        this.name = name;
+        this.complated = complated;
+        this.dueDate = dueDate;
+    }
+}
+```
+
+6 . Genereate the tasks-list.components.ts 
+<br> tasks: Task[]=[] array of tasks 
+```
+import { Component, OnInit } from '@angular/core';
+import {Task} from "../task.model";
+
+
+@Component({
+  selector: 'app-tasks-list',
+  templateUrl: './tasks-list.component.html',
+  styleUrls: ['./tasks-list.component.css']
+})
+export class TasksListComponent implements OnInit {
+
+
+    tasks: Task[] =[];
+
+    constructor() { }
+
+    ngOnInit() {
+        this.tasks.push(new Task(1,"Go to Schhool",true,"07/08/18"));
+        this.tasks.push(new Task(1,"Format the PC",true,"07/05/18"));
+        this.tasks.push(new Task(1,"Take a ticket for Flight",true,"07/12/18"));
+    }
+    
+     getDueDateLabel(task:Task){
+        return task.complated ? 'label-success' : 'label-primary';
+    }
+
+    onTaskChange(event,task){
+        console.log("Task has changed");
+    }
+
+}
+```
+7 . update the task-list.component to list dynamically 
+```
+<ul class ="list-group">
+    <li *ngFor="let task of tasks" class="list-group-item">
+        <div class="task-checkbox">
+            <input type="checkbox"
+                   class="list-child"
+                   (change)="onTaskChange($event,task)"
+                   [checked]="task.completed">
+
+            <span ngClass= "{{task.completed ? 'name completed' : 'name'}}" > {{ task.name}} </span>
+            <span class= "label  {{ getDueDateLabel(task)}} pull-right"> {{task.dueDate}} </span>
+        </div>
+    </li>
+</ul>
+```
