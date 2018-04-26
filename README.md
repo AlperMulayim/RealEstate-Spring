@@ -388,4 +388,25 @@ export class TasksListComponent implements OnInit {
 ```
  "start": "ng serve --proxy-config proxy-conf.json",
 ```
-<br> 6 .  
+<br> 6 .  Start the app  - > npm start  Now frontend connected to the server
+
+
+ ### Task Manager Part - 4 Send Info to Server
+ Check the selected task done ( input from frontend sending to server ) 
+ <br> This is done by http.post() operation  tasks.service.ts update 
+ ```
+  checkTask(task: Task,checked: boolean){
+        task.complated = checked;
+        return this.http.post('/api/tasks/save',task);
+   }
+ ```
+ update the task-list.component.ts onTaskChange()   Now user check sended to server
+ ```
+    onTaskChange(event,task){
+        console.log("Task has changed");
+        this.taskService.checkTask(task,event.target.checked).subscribe();
+    }
+  ```   
+
+  
+
