@@ -1,3 +1,20 @@
-<p>
-  cars-list works!
-</p>
+<div class="container">
+  <table class="table table-hover">
+    <thead>
+    <tr>
+      <th>Model</th>
+      <th>Plaka</th>
+      <th>Driver</th>
+      <th>Model Year</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let car of cars">
+      <td>{{car.model}}</td>
+      <td>{{car.plaka}}</td>
+      <td>{{car.driverName}}</td>
+      <td>{{car.modelYear}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
