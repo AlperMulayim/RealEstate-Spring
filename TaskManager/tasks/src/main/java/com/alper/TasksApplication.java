@@ -1,7 +1,9 @@
 package com.alper;
 
+import com.alper.domain.Bus;
 import com.alper.domain.Car;
 import com.alper.domain.Task;
+import com.alper.service.BusService;
 import com.alper.service.CarService;
 import com.alper.service.TaskService;
 import org.springframework.boot.CommandLineRunner;
@@ -20,7 +22,7 @@ public class TasksApplication {
 	}
 
 	@Bean
-	CommandLineRunner runner(TaskService taskService, CarService carService){
+	CommandLineRunner runner(TaskService taskService, CarService carService, BusService busService){
 		return args->{
 			taskService.saveTask(new Task("Work For Spring", LocalDate.now(),false));
 			taskService.saveTask(new Task("Work For Math", LocalDate.now().plus(10, ChronoUnit.DAYS),false));
@@ -29,7 +31,9 @@ public class TasksApplication {
 			carService.save(new Car("Mercedes GLA","XCVR312","Teressa",2017));
 			carService.save(new Car("Renault Megan","123UV1234","Namık",2005));
 			carService.save(new Car("Skoda Kodiak","14mn34","Demi",2017));
-
+			busService.save(new Bus("Mercedes Travego","12367","Oliver",2016,45));
+			busService.save(new Bus("Mercedes Tourismo","1433","John",2018,40));
+			busService.save(new Bus("Man Neoplan","14566","Jack",2011,50));
 		};
 	}
 }
