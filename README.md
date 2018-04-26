@@ -172,6 +172,11 @@ https://cli.angular.io/ command : npm install -g @angular/cli
  <br>3 . Generate tasks-add : ng g c tasks/task-add
  <br>4 . Generate task-list : ng g c tasks/task-list
  ### Adding BootStrap 
+ Installing the bootstrap 
+ ```
+ npm install --save bootstrap
+ ```
+ add this part to angular-cli.json 
    ```
    "styles": [
         "../node_modules/bootstrap/dist/css/bootsrap.min.css",
