@@ -302,3 +302,85 @@ export class TasksListComponent implements OnInit {
     </li>
 </ul>
 ```
+ ### Task Manager Part - 3 
+ Connecting the frontend to server ( frontend  localhost:4200 , server localhost:8800).
+ <br> 1 . Creating the file task.service.ts uses HttpClient
+ ```
+ import {HttpClient} from "@angular/common/http";
+import {Injectable} from "@angular/core";
+
+@Injectable()
+export class TaskService{
+
+    constructor(private http: HttpClient){
+
+    }
+
+    getTasks(){
+        return this.http.get("/api/tasks");
+    }
+}
+````
+<br> 2 . Add the TaskService and HttpClientModule to app.module.ts
+```
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    TasksComponent,
+    TasksAddComponent,
+    TasksListComponent
+  ],
+    imports: [
+        BrowserModule,
+        HttpClientModule
+    ],
+  providers: [TaskService],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+```
+<br> 3 . Update the task-list.component.ts This is the task list frontend updater 
+```
+export class TasksListComponent implements OnInit {
+
+
+    tasks: Task[] =[];
+
+    constructor( private taskService:TaskService) { }
+
+    ngOnInit() {
+        return this.taskService.getTasks()
+            .subscribe(
+                (tasks: any[] )=>{
+                    this.tasks = tasks;
+                },
+                (error)=>console.log(error)
+            );
+    }
+
+    getDueDateLabel(task:Task){
+        return task.complated ? 'label-success' : 'label-primary';
+    }
+
+    onTaskChange(event,task){
+        console.log("Task has changed");
+    }
+
+}
+```
+<br> 4 . Create a proxy-conf.json on frontend folder  proxy settings for connection 
+```
+{
+    "/api": {
+        "target": "http://localhost:8080",
+        "secure": false
+    }
+}
+```
+
+<br> 5 . Update the package.json to start the new proxy setting
+```
+ "start": "ng serve --proxy-config proxy-conf.json",
+```
+<br> 6 .  
