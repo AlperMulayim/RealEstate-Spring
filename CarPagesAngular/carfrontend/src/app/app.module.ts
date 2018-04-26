@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { CarsComponent } from './cars/cars.component';
 import { CarsListComponent } from './cars/cars-list/cars-list.component';
 import { CarsAddComponent } from './cars/cars-add/cars-add.component';
+import {CarService} from "./cars/car.service";
+import {HttpClientModule} from "@angular/common/http";
 
 
 @NgModule({
@@ -16,9 +18,10 @@ import { CarsAddComponent } from './cars/cars-add/cars-add.component';
     CarsAddComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [CarService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
