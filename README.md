@@ -408,5 +408,59 @@ export class TasksListComponent implements OnInit {
     }
   ```   
 
+  ### Task Manager Part -5 Input from User From
+  Get the input from user and send to the server. 
+  <br>1 .  task-add.component.html udate with keyup.enter ( enter key detect ) 
   
+```
+<div class="form-group">
+    <input
+        type="text"
+        class="form-control"
+        placeholder="Add New Task"
+        (keyup.enter)="onTaskAdd($event)">
+</div>
+```
+ <br> 2 . task.service.ts add the addTask() method for sending server the task.
+ 
+```
+ addTask(task:Task){
+      return this.http.post('/api/tasks/save',task);
+  }
+    
+ ```
+ 
+ <br> 3 . task-add.component.ts update onTaskAdd() method add for getting input value 
+ <br for this operation ``` event.target.value``` is the input value.
+ <br> take parameter as a taskService on constructor. 
+ 
+ ```
+ export class TasksAddComponent implements OnInit {
 
+  constructor(private  taskService : TaskService) { }
+
+  ngOnInit() {
+  }
+
+  onTaskAdd(event){
+    let task:Task = new Task(event.target.value,false,"11/12/18");
+
+    this.taskService.addTask(task).subscribe(
+        (newTask : Task)=>{
+            this.addTaskValue = ' ';
+            this.taskService.onTaskAdded.emit(newTask);
+        }
+    )
+  }
+ ```
+ <br> 4 . on the task-list.component.ts side subscribe the adding list
+ ```
+  this.taskService.onTaskAdded.subscribe(
+         (task:Task)=>this.tasks.push(task)
+    );
+   ```
+ 
+ 
+ 
+ 
+ 
