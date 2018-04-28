@@ -1,4 +1,4 @@
-##J HIPSTER Tutorial
+## J HIPSTER Tutorial
 JHipster includes the Yeoman , SpringBoot and AngularJS.
 
 ### Prerequest
