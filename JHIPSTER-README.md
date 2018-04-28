@@ -6,3 +6,4 @@ JHipster includes the Yeoman , SpringBoot and AngularJS.
 <br> 2 .Yarn
 <br> 3 . WebPack
 <br> 4 . Yeoman
+<br>
