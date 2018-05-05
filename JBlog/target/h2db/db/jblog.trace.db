@@ -1,0 +1,6 @@
+2018-05-05 14:03:59 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "DATABASECHANGELOGLOCK" not found; SQL statement:
+select count(*) from PUBLIC.DATABASECHANGELOGLOCK [42102-197]
+2018-05-05 14:40:36 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Value too long for column "JHI_BODY VARCHAR(255)": "'Lorem ipsum dolor sit amet, ea qui noster equidem voluptaria, ancillae mediocrem democritum mei eu. Pri ex expetenda periculis.... (3194)"; SQL statement:
+insert into post (id, author, jhi_body, title) values (null, ?, ?, ?) [22001-197]
