@@ -51,3 +51,35 @@ export class AppComponent {
     this.status = false;
   }
 ```
+### Loops 
+```
+<ul>
+  <li *ngFor="let post of posts"> {{post.title}}</li>
+</ul>
+```
+```
+export class AppComponent {
+
+  firstName = 'Alper';
+  lastName : string;
+  status :boolean;
+  posts: object[];
+
+  constructor(){
+    this.setUserStatus();
+    this.posts = [
+      {title: 'Post 1'},
+      {title: 'Post 2'},
+      {title: 'Post 3'},
+      {title: 'Post 4'},
+      {title: 'Post 5'},
+    ]
+  }
+  greetPerson(){
+    alert("Hello From Angular");
+  }
+  setUserStatus(){
+    this.status = false;
+  }
+}
+```
