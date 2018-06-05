@@ -105,3 +105,23 @@ export class AppComponent {
 }
 ```
 
+### Form Creation 
+app-component.html 
+```
+
+<form>
+  <div class="form-group">
+    <label for="username"> Username</label>
+    <input type="text" id="username" class="form-control" placeholder="Enter Name">
+  </div>
+
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input type="password" id="password" class="form-control" placeholder="Enter Password">
+  </div>
+
+  <button type="submit" class="btn btn-primary"> Submit </button>
+</form>
+```
+
+
