@@ -83,3 +83,9 @@ export class AppComponent {
   }
 }
 ```
+<br> printing the index 
+```
+<ul>
+  <li *ngFor="let post of posts ; let i = index " >{{i}} . {{post.title}}</li>
+</ul>
+```
