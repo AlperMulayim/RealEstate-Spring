@@ -4,7 +4,7 @@
 
 app-component.html 
 ```<button (click)="greetPerson()">Click</button> ``` 
-app-component.ts 
+<br> app-component.ts 
 ```
 import { Component } from '@angular/core';
 
@@ -21,3 +21,18 @@ export class AppComponent {
 }
 
 ```
+### Two Way Binding 
+app-component.html 
+```
+<input [(ngModel)]="lastName" type="text">
+<hr>
+{{lastName}}
+<hr>
+```
+<br> app-component.ts 
+```
+export class AppComponent {
+  lastName : string
+}
+```
+
