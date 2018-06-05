@@ -35,4 +35,19 @@ export class AppComponent {
   lastName : string
 }
 ```
+### If Condition
+```
+<h3> if condition</h3>
+<hr>
+<h4 *ngIf="status; else notFound"> {{ firstName }}</h4>
 
+<ng-template #notFound>
+  <p> user not found </p>
+</ng-template>    
+```
+
+```
+  setUserStatus(){
+    this.status = false;
+  }
+```
