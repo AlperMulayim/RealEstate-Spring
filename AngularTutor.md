@@ -89,3 +89,19 @@ export class AppComponent {
   <li *ngFor="let post of posts ; let i = index " >{{i}} . {{post.title}}</li>
 </ul>
 ```
+### Style 
+<br> Static Styling 
+```
+<h3 [ngStyle]="{color : status ? 'green' : 'red'}" >  {{firstName}}</h3>
+```
+<br>  Loading Style CLass 
+```
+<h3 [ngClass]="{isActive : status}">{{lastName}}</h3>
+```
+<br> styles.css 
+```
+.isActive{
+  color : green;
+}
+```
+
