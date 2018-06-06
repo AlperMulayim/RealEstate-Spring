@@ -1,0 +1,51 @@
+<p>
+  home-component works!
+</p>
+
+<h3>Button</h3>
+<button (click)="greetPerson()">Click</button>
+
+
+<h3> Two Way Binding </h3>
+<hr>
+<input [(ngModel)]="lastName" type="text">
+
+<hr>
+{{lastName}}
+<hr>
+
+<h3> if condition</h3>
+<hr>
+<h4 *ngIf="status; else notFound"> {{ firstName }}</h4>
+
+<ng-template #notFound>
+  <p> user not found </p>
+</ng-template>
+
+<hr>
+
+<ul>
+  <li *ngFor="let post of posts"> {{post.title}}</li>
+</ul>
+
+<ul>
+  <li *ngFor="let post of posts ; let i = index " >{{i}} . {{post.title}}</li>
+</ul>
+
+<hr>
+<h3 [ngStyle]="{color : status ? 'green' : 'red'}" >  {{firstName}}</h3>
+
+<hr>
+<h3 [ngClass]="{isActive : status}">{{lastName}}</h3>
+
+
+<button class="btn-primary"> Button </button>
+
+
+
+<form (ngSubmit)="carSubmit(carForm)" #carForm="ngForm">
+  <div class="form-group">
+    <input ngModel name="model" type="text" id="model" class = "form-control" placeholder="Car Model">
+  </div>
+  <button type="submit" class="btn btn-primary"> Submit  Car </button>
+</form>
