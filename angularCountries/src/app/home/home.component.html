@@ -1,0 +1,22 @@
+<form (ngSubmit)="onSubmit(theForm)" #theForm="ngForm">
+  <div class="form group">
+    <label for="countryname">Country Name  </label>
+    <input ngModel name="countryname" type="text" class="form-control" id="countryname" placeholder="Enter CountryName for add">
+  </div>
+  <button type="submit" class="btn btn-primary"> Add </button>
+</form>
+
+
+<hr>
+
+<div class="card-columns">
+  <div class="card" style="width:400px ;height:350px" *ngFor="let country of  countryList">
+    <img src={{country.flag}} style="width:400px ;height:350px" >
+    <div class="card-body">
+      <h4 class="card-title">{{country.name}}</h4>
+      <p class="card-text">{{country.nativeName}}</p>
+      <p class="card-text">{{country.capital}}</p>
+    </div>
+  </div>
+</div>
+
