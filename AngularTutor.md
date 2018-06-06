@@ -186,6 +186,36 @@ export class AppComponent {
   }
 }
 ```
+### HTTP REQUEST
+#### HTTP GET REQUEST
+```
+export class EmployeeComponent implements OnInit {
+
+  posts: object;
+  constructor(private http: HttpClient) { }
+
+  ngOnInit() {
+    this.http.get('https://jsonplaceholder.typicode.com/posts').subscribe(posts=>{
+      this.posts = posts;
+    });
+  }
+
+}
+```
+```
+<div class="card" *ngFor="let post of posts">
+  <h6 class="card-header">USER - {{post.id}}</h6>
+  <div class="card-body">
+    <h5 class="card-title">{{post.title}}</h5>
+    <p class="card-text">{{post.body}}</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+```
+
+
+
+
 
 ```
 <form (ngSubmit)="carSubmit(carForm)" #carForm="ngForm">
