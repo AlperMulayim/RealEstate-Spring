@@ -1,10 +1,13 @@
 package com.mycompany.myapp.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.Objects;
 
 /**
@@ -26,9 +29,9 @@ public class RfbEventAttendance implements Serializable {
     @ManyToOne
     private RfbEvent rfbEvent;
 
-    @OneToOne
-    @JoinColumn(unique = true)
-    private RfbUser rfbUser;
+    @OneToMany(mappedBy = "rfbEventAttendance")
+    @JsonIgnore
+    private Set<RfbUser> rfbUsers = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -65,17 +68,29 @@ public class RfbEventAttendance implements Serializable {
         this.rfbEvent = rfbEvent;
     }
 
-    public RfbUser getRfbUser() {
-        return rfbUser;
+    public Set<RfbUser> getRfbUsers() {
+        return rfbUsers;
     }
 
-    public RfbEventAttendance rfbUser(RfbUser rfbUser) {
-        this.rfbUser = rfbUser;
+    public RfbEventAttendance rfbUsers(Set<RfbUser> rfbUsers) {
+        this.rfbUsers = rfbUsers;
         return this;
     }
 
-    public void setRfbUser(RfbUser rfbUser) {
-        this.rfbUser = rfbUser;
+    public RfbEventAttendance addRfbUser(RfbUser rfbUser) {
+        this.rfbUsers.add(rfbUser);
+        rfbUser.setRfbEventAttendance(this);
+        return this;
+    }
+
+    public RfbEventAttendance removeRfbUser(RfbUser rfbUser) {
+        this.rfbUsers.remove(rfbUser);
+        rfbUser.setRfbEventAttendance(null);
+        return this;
+    }
+
+    public void setRfbUsers(Set<RfbUser> rfbUsers) {
+        this.rfbUsers = rfbUsers;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

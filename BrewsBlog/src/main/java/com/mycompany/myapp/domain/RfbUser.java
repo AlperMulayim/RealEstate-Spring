@@ -26,6 +26,9 @@ public class RfbUser implements Serializable {
     @JoinColumn(unique = true)
     private RfbLocation homeLocation;
 
+    @ManyToOne
+    private RfbEventAttendance rfbEventAttendance;
+
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
@@ -59,6 +62,19 @@ public class RfbUser implements Serializable {
 
     public void setHomeLocation(RfbLocation rfbLocation) {
         this.homeLocation = rfbLocation;
+    }
+
+    public RfbEventAttendance getRfbEventAttendance() {
+        return rfbEventAttendance;
+    }
+
+    public RfbUser rfbEventAttendance(RfbEventAttendance rfbEventAttendance) {
+        this.rfbEventAttendance = rfbEventAttendance;
+        return this;
+    }
+
+    public void setRfbEventAttendance(RfbEventAttendance rfbEventAttendance) {
+        this.rfbEventAttendance = rfbEventAttendance;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

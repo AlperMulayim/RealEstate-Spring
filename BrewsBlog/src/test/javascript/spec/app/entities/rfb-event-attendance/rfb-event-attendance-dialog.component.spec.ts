@@ -10,7 +10,6 @@ import { RfbEventAttendanceDialogComponent } from '../../../../../../main/webapp
 import { RfbEventAttendanceService } from '../../../../../../main/webapp/app/entities/rfb-event-attendance/rfb-event-attendance.service';
 import { RfbEventAttendance } from '../../../../../../main/webapp/app/entities/rfb-event-attendance/rfb-event-attendance.model';
 import { RfbEventService } from '../../../../../../main/webapp/app/entities/rfb-event';
-import { RfbUserService } from '../../../../../../main/webapp/app/entities/rfb-user';
 
 describe('Component Tests', () => {
 
@@ -27,7 +26,6 @@ describe('Component Tests', () => {
                 declarations: [RfbEventAttendanceDialogComponent],
                 providers: [
                     RfbEventService,
-                    RfbUserService,
                     RfbEventAttendanceService
                 ]
             })

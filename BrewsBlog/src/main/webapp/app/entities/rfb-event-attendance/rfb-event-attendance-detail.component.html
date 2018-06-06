@@ -14,12 +14,6 @@
                 <a [routerLink]="['/rfb-event', rfbEventAttendance.rfbEventId]">{{rfbEventAttendance.rfbEventId}}</a>
             </div>
         </dd>
-        <dt><span>Rfb User</span></dt>
-        <dd>
-            <div *ngIf="rfbEventAttendance.rfbUserId">
-                <a [routerLink]="['/rfb-user', rfbEventAttendance.rfbUserId]">{{rfbEventAttendance.rfbUserId}}</a>
-            </div>
-        </dd>
     </dl>
 
     <button type="submit"

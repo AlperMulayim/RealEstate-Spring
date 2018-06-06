@@ -14,5 +14,11 @@
                                  referencedColumnNames="id"
                                  referencedTableName="rfb_location"/>
 
+        <addForeignKeyConstraint baseColumnNames="rfb_event_attendance_id"
+                                 baseTableName="rfb_user"
+                                 constraintName="fk_rfb_user_rfb_event_attendance_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="rfb_event_attendance"/>
+
     </changeSet>
 </databaseChangeLog>

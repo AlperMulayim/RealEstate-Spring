@@ -10,6 +10,7 @@ import { RfbUser } from './rfb-user.model';
 import { RfbUserPopupService } from './rfb-user-popup.service';
 import { RfbUserService } from './rfb-user.service';
 import { RfbLocation, RfbLocationService } from '../rfb-location';
+import { RfbEventAttendance, RfbEventAttendanceService } from '../rfb-event-attendance';
 
 @Component({
     selector: 'jhi-rfb-user-dialog',
@@ -22,11 +23,14 @@ export class RfbUserDialogComponent implements OnInit {
 
     homelocations: RfbLocation[];
 
+    rfbeventattendances: RfbEventAttendance[];
+
     constructor(
         public activeModal: NgbActiveModal,
         private jhiAlertService: JhiAlertService,
         private rfbUserService: RfbUserService,
         private rfbLocationService: RfbLocationService,
+        private rfbEventAttendanceService: RfbEventAttendanceService,
         private eventManager: JhiEventManager
     ) {
     }
@@ -46,6 +50,8 @@ export class RfbUserDialogComponent implements OnInit {
                         }, (subRes: HttpErrorResponse) => this.onError(subRes.message));
                 }
             }, (res: HttpErrorResponse) => this.onError(res.message));
+        this.rfbEventAttendanceService.query()
+            .subscribe((res: HttpResponse<RfbEventAttendance[]>) => { this.rfbeventattendances = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
     }
 
     clear() {
@@ -83,6 +89,10 @@ export class RfbUserDialogComponent implements OnInit {
     }
 
     trackRfbLocationById(index: number, item: RfbLocation) {
+        return item.id;
+    }
+
+    trackRfbEventAttendanceById(index: number, item: RfbEventAttendance) {
         return item.id;
     }
 }

@@ -17,11 +17,11 @@ entity RfbEventAttendance{
 
 relationship OneToMany{
 	RfbLocation{rvbEvent} to RfbEvent,
+	RfbEventAttendance{rfbUser} to RfbUser,
     RfbEvent{rfbEventAttendance} to RfbEventAttendance
 }
 
 relationship OneToOne{
-	RfbEventAttendance{rfbUser} to RfbUser
     RfbUser{homeLocation} to RfbLocation
 }
 

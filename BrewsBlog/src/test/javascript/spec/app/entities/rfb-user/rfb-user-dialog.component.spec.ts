@@ -10,6 +10,7 @@ import { RfbUserDialogComponent } from '../../../../../../main/webapp/app/entiti
 import { RfbUserService } from '../../../../../../main/webapp/app/entities/rfb-user/rfb-user.service';
 import { RfbUser } from '../../../../../../main/webapp/app/entities/rfb-user/rfb-user.model';
 import { RfbLocationService } from '../../../../../../main/webapp/app/entities/rfb-location';
+import { RfbEventAttendanceService } from '../../../../../../main/webapp/app/entities/rfb-event-attendance';
 
 describe('Component Tests', () => {
 
@@ -26,6 +27,7 @@ describe('Component Tests', () => {
                 declarations: [RfbUserDialogComponent],
                 providers: [
                     RfbLocationService,
+                    RfbEventAttendanceService,
                     RfbUserService
                 ]
             })
