@@ -123,5 +123,79 @@ app-component.html
   <button type="submit" class="btn btn-primary"> Submit </button>
 </form>
 ```
+#### Form Binding 
+
+```
+<form (ngSubmit)="onSubmit(theForm)" #theForm="ngForm">
+  <div class="form-group">
+    <label for="username"> Username</label>
+    <input ngModel name="username" type="text" id="username" class="form-control" placeholder="Enter Name">
+  </div>
+
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input ngModel name="password" type="password" id="password" class="form-control" placeholder="Enter Password">
+  </div>
+
+  <button type="submit" class="btn btn-primary"> Submit </button>
+</form>
+```
+```
+export class AppComponent {
+
+  firstName :string;
+  lastName : string;
+  status :boolean;
+  posts: object[];
+
+  user = {
+    username:'',
+    password:''
+  };
+
+  car={
+    model:''
+  };
+
+  constructor(){
+    this.firstName = 'alper';
+    this.setUserStatus();
+    this.posts = [
+      {title: 'Post 1'},
+      {title: 'Post 2'},
+      {title: 'Post 3'},
+      {title: 'Post 4'},
+      {title: 'Post 5'},
+    ]
+  }
+  greetPerson(){
+    alert("Hello From Angular");
+  }
+  setUserStatus(){
+    this.status = false;
+  }
+  onSubmit(theForm: NgForm){
+    this.user.username = theForm.value.username;
+    this.user.password = theForm.value.password;
+    console.log(this.user);
+  }
+
+  carSubmit(carForm: NgForm){
+    this.car.model = carForm.value.model;
+    console.log(this.car);
+  }
+}
+```
+
+```
+<form (ngSubmit)="carSubmit(carForm)" #carForm="ngForm">
+  <div class="form-group">
+      <input ngModel name="model" type="text" id="model" class = "form-control" placeholder="Car Model">
+
+  </div>
+  <button type="submit" class="btn btn-primary"> Submit  Car </button>
+</form>
+```
+
 
 
